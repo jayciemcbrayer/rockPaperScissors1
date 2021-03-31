@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section{
+    height: 100vh;
+    background-color: red; 
+    font-family: 'DotGothic16', sans-serif;
+}
+
+.score_board{
+    color: white;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.score_board h2{
+    font-size: 33px;
+}
+
+.score_board p{
+    text-align: center;
+    padding: 11px;
+    font-size: 25px;
+}
+
+.intro{
+    color: white;
+    height: 50vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity ease 0.5s;
+}
+
+.intro h1{
+    font-size: 3rem;
+}
+
+.intro button, .match button{
+    width: 9rem;
+    height: 3rem;
+    background: none;
+    border: none;
+    border-radius: 100px;
+    color: white;
+    font-size: 1.1rem;
+    background-color: #0000CC;
+    cursor: pointer;
+}
+
+.match{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease 0.5s;
+}
+
+.option-prompt{
+    color: white;
+    text-align: center;
+    font-size: 3.1rem;
+}
+
+.hands, .options{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.player_hand{
+    transform: rotateY(180deg);
+}
