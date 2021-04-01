@@ -9,6 +9,17 @@
 // the rock paper scissors game becomes visible
 ///compare the user choice and the cpu choice to declare winner
 
+//What needs to be clicked on, what needs an event listener, what needs to be stored in a varible
+
+//Task 1: Click "Play Game" and make game data visble and "Play Game" screen display invisible 
+//Manipulte visibility in the DOM
+
+
+
+
+
+
+
 ///Rock 
 function playRock ()
 
