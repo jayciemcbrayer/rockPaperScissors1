@@ -20,8 +20,8 @@ const scissorsImage = "./assets/scissors.png";
 const optionImages = [rockImage, paperImage, scissorsImage];
 const playerHand = document.getElementById("playerHand");
 const compHand = document.getElementById("compHand");
-let playerScore = 0;
-let compScore = 0;
+let playerScore = document.querySelector(".player_score").innerHTML;
+let compScore = document.querySelector(".computer_score").innerHTML;
 
 //Task 1: Click "Play Game" and make game data visble and "Play Game" screen display invisible 
 //Manipulte visibility in the DOM
@@ -53,25 +53,25 @@ document.querySelector(".rock").addEventListener('click', function(){
     compHand.src = optionImages[generatedNumber];
     updateScore (rockImage, optionImages[generatedNumber]);
 })
-
+//Scoreboard to keep score throghout game
 function updateScore (playerPlay, compPlay){
 console.log(playerPlay, compPlay);  
-    if (playerPlay == rockImage && compPlay == scissorsImage) {
+    if (playerPlay == rockImage && compPlay == scissorsImage) { //rock > scissors
         playerScore += 1;
         console.log(playerPlay, compPlay);
-    }else if (playerPlay == scissorsImage && compPlay == rockImage) {
+    }else if (playerPlay == scissorsImage && compPlay == rockImage) { //scissors < rock
         compScore += 1;
         console.log(playerPlay, compPlay);
-    }else if (playerPlay == scissorsImage && compPlay == paperImage) {
+    }else if (playerPlay == scissorsImage && compPlay == paperImage) { //scissors > paper
         playerScore += 1;
         console.log(playerPlay, compPlay);
-    }else if (playerPlay == paperImage && compPlay == scissorsImage) {
+    }else if (playerPlay == paperImage && compPlay == scissorsImage) { //paper < scissors
         compScore += 1;
         console.log(playerPlay, compPlay);
-    }else if (playerPlay == paperImage && compPlay == rockImage) {
+    }else if (playerPlay == paperImage && compPlay == rockImage) { //paper > rock
         playerScore += 1;
         console.log(playerPlay, compPlay);
-    }else if (playerPlay == rockImage && compPlay == paperImage) {
+    }else if (playerPlay == rockImage && compPlay == paperImage) { //rock < paper
         compScore += 1;
         console.log(playerPlay, compPlay);
     }else if (playerPlay == compPlay) {
@@ -82,37 +82,8 @@ console.log(playerPlay, compPlay);
 }
 
 
-
-//Rock Paper Scissors Rules
-// rockImage > scissorsImage (+1 point)
-// scissorsImage > paperImage (+1 point)
-// paperImage > rockImage (+1 point)
-// rockImage = rockImage (no points)
-// paperImage = paperImage (no points)
-// scissorsImage = scissorsImage (no points)
-//Use a comparison operator to determine match winner and add points to winner
 //Loop through game until one player reaches 5 points, then game reset
 //Score function nested inside a loop that breaks out once player_score = 5 || computer_score = 5;
-// switch
-//     case rock > scissors
-//         rock + 1 point
-//         break;
-//     case Scissors > Paper
-//         Scissors + 1 point
-    //     break;
-    // case paper > rock
-    //     paper + 1
-    //     break;
-    // case rock = rock
-    //     points + 0
-    //     break;
-    // case paper = paper
-    //     points + 0
-    //     break;
-    // case scissors = scissors
-    //     points + 0
-    //     break;
-
 
     // if (player_hand === comp_hand) {
     //     player_score && comp_score + 0;
@@ -126,15 +97,6 @@ console.log(playerPlay, compPlay);
 //     alert("Congratulations, you win!")
 // } else if (computer_score = 5)
 //     alert("Sorry, you lose!")
-
-
-
-//CPU Plays
-// Math.floor(Math.random() * (3));
-// document.getElementById("compHand").addEventListener('click', function(){
-//     document.getElementById("compHand").src = optionImages[Math.floor(Math.random() * (3))];
-// })
-
 
 
 // function checkRequired(arrayOfInputs) {
