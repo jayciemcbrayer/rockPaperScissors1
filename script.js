@@ -20,8 +20,10 @@ const scissorsImage = "./assets/scissors.png";
 const optionImages = [rockImage, paperImage, scissorsImage];
 const playerHand = document.getElementById("playerHand");
 const compHand = document.getElementById("compHand");
-let playerScore = document.querySelector(".player_score").innerHTML;
-let compScore = document.querySelector(".computer_score").innerHTML;
+let playerScore = 0;
+let compScore = 0;
+let playerResult = document.querySelector(".player_score");
+let compResult =  document.querySelector(".computer_score");
 
 //Task 1: Click "Play Game" and make game data visble and "Play Game" screen display invisible 
 //Manipulte visibility in the DOM
@@ -57,54 +59,41 @@ document.querySelector(".rock").addEventListener('click', function(){
 function updateScore (playerPlay, compPlay){
 console.log(playerPlay, compPlay);  
     if (playerPlay == rockImage && compPlay == scissorsImage) { //rock > scissors
-        playerScore += 1;
+        playerResult.innerHTML = playerScore += 1;
         console.log(playerPlay, compPlay);
     }else if (playerPlay == scissorsImage && compPlay == rockImage) { //scissors < rock
-        compScore += 1;
+        compResult.innerHTML = compScore += 1;
         console.log(playerPlay, compPlay);
     }else if (playerPlay == scissorsImage && compPlay == paperImage) { //scissors > paper
-        playerScore += 1;
+        playerResult.innerHTML = playerScore += 1;
         console.log(playerPlay, compPlay);
     }else if (playerPlay == paperImage && compPlay == scissorsImage) { //paper < scissors
-        compScore += 1;
+        compResult.innerHTML = compScore += 1;
         console.log(playerPlay, compPlay);
     }else if (playerPlay == paperImage && compPlay == rockImage) { //paper > rock
-        playerScore += 1;
+        playerResult.innerHTML = playerScore += 1;
         console.log(playerPlay, compPlay);
     }else if (playerPlay == rockImage && compPlay == paperImage) { //rock < paper
-        compScore += 1;
+        compResult.innerHTML = compScore += 1;
         console.log(playerPlay, compPlay);
-    }else if (playerPlay == compPlay) {
-        playerScore += 0;
-        compPlay += 0;
-        console.log(playerPlay, compPlay);
-    } console.log(playerScore, compScore);
+    }
+
+    // else if (playerPlay === 5) {
+    //     alert("Congratulations, you win!")
+    //     playerResult.innerHTML = playerScore = 0;
+    //     compResult.innerHTML = compScore = 0;
+    // } else if (compPlay === 5) {
+    //     alert("Sorry, you lose!");
+    // } console.log(playerScore, compScore);
 }
+
+//Task 5: Reset Button
+document.querySelector(".reset").addEventListener('click', function(){
+    playerResult.innerHTML = 0;
+    compResult.innerHTML = 0;
+}) //Issue: game picks back up at most recent score, not clearing out to 0
+    
 
 
 //Loop through game until one player reaches 5 points, then game reset
 //Score function nested inside a loop that breaks out once player_score = 5 || computer_score = 5;
-
-    // if (player_hand === comp_hand) {
-    //     player_score && comp_score + 0;
-    // } else if ()
-
-//Score function nested inside a loop that breaks out once player_score = 5 || computer_score = 5;
-// if (player_score = 5 || computer_score = 5) {
-    //game reset
-// }
-// if (player_score = 5) {
-//     alert("Congratulations, you win!")
-// } else if (computer_score = 5)
-//     alert("Sorry, you lose!")
-
-
-// function checkRequired(arrayOfInputs) {
-//     arrayOfInputs.forEach((input) => {
-//         if (input.value.trim() === '') {
-//             showError(input, `${getFieldName(input)} is required`);
-//         } else {
-//             showSuccess(input);
-//         }
-//     });
-// }
