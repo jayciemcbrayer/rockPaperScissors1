@@ -1,19 +1,7 @@
 "use strict";
-//javascript
-// make rock function
-// make paper function
-// make scissors function
-// make reset function 
-// create score fuction
-// limit game to five points
-// When you click 'let's play' the data for 
-// the rock paper scissors game becomes visible
-///compare the user choice and the cpu choice to declare winner
-
-//What needs to be clicked on, what needs an event listener, what needs to be stored in a varible
-
 
 //Varibles
+
 const rockImage = "./assets/rock.png";
 const paperImage = "./assets/paper.png";
 const scissorsImage = "./assets/scissors.png";
@@ -23,15 +11,15 @@ const compHand = document.getElementById("compHand");
 let playerScore = 0;
 let compScore = 0;
 let playerResult = document.querySelector(".player_score");
-let compResult =  document.querySelector(".computer_score");
+let compResult = document.querySelector(".computer_score");
+
+//Event Listeners
 
 //Task 1: Click "Play Game" and make game data visble and "Play Game" screen display invisible 
-//Manipulte visibility in the DOM
 document.getElementById("playButton").addEventListener('click', function(){
     document.getElementById("introDiv").style.display = "none";
     document.getElementById("matchDiv").style.display = "block";
 })
-console.log(document.getElementById("matchDiv"));
 
 //Task 2: Play Paper 
 document.querySelector(".paper").addEventListener('click', function(){
@@ -55,45 +43,44 @@ document.querySelector(".rock").addEventListener('click', function(){
     compHand.src = optionImages[generatedNumber];
     updateScore (rockImage, optionImages[generatedNumber]);
 })
-//Scoreboard to keep score throghout game
-function updateScore (playerPlay, compPlay){
-console.log(playerPlay, compPlay);  
-    if (playerPlay == rockImage && compPlay == scissorsImage) { //rock > scissors
-        playerResult.innerHTML = playerScore += 1;
-        console.log(playerPlay, compPlay);
-    }else if (playerPlay == scissorsImage && compPlay == rockImage) { //scissors < rock
-        compResult.innerHTML = compScore += 1;
-        console.log(playerPlay, compPlay);
-    }else if (playerPlay == scissorsImage && compPlay == paperImage) { //scissors > paper
-        playerResult.innerHTML = playerScore += 1;
-        console.log(playerPlay, compPlay);
-    }else if (playerPlay == paperImage && compPlay == scissorsImage) { //paper < scissors
-        compResult.innerHTML = compScore += 1;
-        console.log(playerPlay, compPlay);
-    }else if (playerPlay == paperImage && compPlay == rockImage) { //paper > rock
-        playerResult.innerHTML = playerScore += 1;
-        console.log(playerPlay, compPlay);
-    }else if (playerPlay == rockImage && compPlay == paperImage) { //rock < paper
-        compResult.innerHTML = compScore += 1;
-        console.log(playerPlay, compPlay);
-    }
-
-    // else if (playerPlay === 5) {
-    //     alert("Congratulations, you win!")
-    //     playerResult.innerHTML = playerScore = 0;
-    //     compResult.innerHTML = compScore = 0;
-    // } else if (compPlay === 5) {
-    //     alert("Sorry, you lose!");
-    // } console.log(playerScore, compScore);
-}
 
 //Task 5: Reset Button
-document.querySelector(".reset").addEventListener('click', function(){
-    playerResult.innerHTML = 0;
-    compResult.innerHTML = 0;
-}) //Issue: game picks back up at most recent score, not clearing out to 0
-    
+document.querySelector(".reset").addEventListener('click', resetScore);
 
+//Functions
 
-//Loop through game until one player reaches 5 points, then game reset
-//Score function nested inside a loop that breaks out once player_score = 5 || computer_score = 5;
+//Scoreboard function to keep score throghout game
+function updateScore(playerPlay, compPlay) {
+    if (playerPlay == rockImage && compPlay == scissorsImage) { //rock > scissors
+        playerResult.innerHTML = playerScore += 1;
+    } else if (playerPlay == scissorsImage && compPlay == rockImage) { //scissors < rock
+        compResult.innerHTML = compScore += 1;
+    } else if (playerPlay == scissorsImage && compPlay == paperImage) { //scissors > paper
+        playerResult.innerHTML = playerScore += 1;
+    } else if (playerPlay == paperImage && compPlay == scissorsImage) { //paper < scissors
+        compResult.innerHTML = compScore += 1;
+    } else if (playerPlay == paperImage && compPlay == rockImage) { //paper > rock
+        playerResult.innerHTML = playerScore += 1;
+    } else if (playerPlay == rockImage && compPlay == paperImage) { //rock < paper
+        compResult.innerHTML = compScore += 1;
+    }
+     isGameOver();
+}
+
+//Game over function @ first to 5 points 
+function isGameOver () {
+  if (playerScore === 5) {
+      alert("Congratulations, you win!")
+      resetScore();
+  } else if (compScore === 5) {
+      alert("Sorry, you lose!");
+      resetScore();
+    } 
+}
+//Reset button function 
+function resetScore() {
+    playerScore = 0;
+    compScore = 0;
+    playerResult.innerHTML = playerScore;
+    compResult.innerHTML = compScore;
+}
