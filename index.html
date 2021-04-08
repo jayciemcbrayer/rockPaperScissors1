@@ -22,11 +22,13 @@
             </div>
         </div>
         
+        <!-- Make dissapear on click -->
         <div id="introDiv" class="intro">
             <h1>Rock Paper Scissors</h1>
             <button id="playButton">Let's Play!</button>
         </div>
 
+        <!-- Appear on clicking the play button -->
         <div id="matchDiv" style="display: none;" class="match">
             <h2 class="option-prompt">Choose an option</h2>
             <div class="hands">
@@ -34,12 +36,12 @@
                 <img class="comp_hand" id="compHand" src="./assets/rock.png" alt="">
             </div>
             <div class="options">
-                <button class="rock" onclick="playMatch(event)">Rock</button>
-                <button class="paper" onclick="playMatch(event)">Paper</button>
-                <button class="scissors" onclick="playMatch(event)">Scissors</button>
+                <button class="rock">Rock</button>
+                <button class="paper">Paper</button>
+                <button class="scissors">Scissors</button>
             </div>
-            <div class="options" style="margin-top:40px;"></div>
-                 <button class="reset" onclick="reset()">Reset</button>
+            <div class="options" style="margin-top:40px;">
+                 <button class="reset">Reset</button>
             </div>
             
            

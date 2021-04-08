@@ -77,3 +77,8 @@ section{
 .player_hand{
     transform: rotateY(180deg);
 }
+
+.reset {
+    justify-content: space-around;
+    align-items: center;
+}
